@@ -75,9 +75,10 @@ export abstract class ConstraintsBuilder implements IConstraintsBuilder {
   }
 }
 
-export interface UtilitySettings {
+export interface ConstraintUtilitySettings {
   readonly policyType: PolicyType;
   readonly claimsContext?: IClaimsContext;
+  readonly appendConditionValues?: boolean;
 }
 
 export class ConstraintsUtility {
@@ -89,7 +90,7 @@ export class ConstraintsUtility {
   private constructor(private readonly constraints: Constraint[]) {
   }
 
-  applyToPolicy(scope: Construct, settings: UtilitySettings, policyStatement: iam.PolicyStatement): void {
+  appendPolicy(scope: Construct, settings: ConstraintUtilitySettings, policyStatement: iam.PolicyStatement): void {
 
     const context: ConstraintAssembleContext = {
       effect: iam.Effect.ALLOW,
@@ -144,36 +145,45 @@ export class ConstraintsUtility {
 
       policyStatement.addCondition(operatorKey, {});
 
-      const existingValues: any = policyStatement.conditions[operatorKey][conditionKey];
+      let existingValues: any;
 
-      const val: { [key: string]: any } = {};
+      if (settings.appendConditionValues) {
+        existingValues = policyStatement.conditions[operatorKey][conditionKey];
+      } else {
+        existingValues = undefined;
+      }
+
+      const value: { [key: string]: any } = {};
 
       if (Array.isArray(existingValues)) {
-        val[conditionKey] = existingValues;
+        value[conditionKey] = existingValues;
       } else if (existingValues !== undefined) {
-        val[conditionKey] = [existingValues];
+        value[conditionKey] = [existingValues];
       } else {
-        val[conditionKey] = [];
+        value[conditionKey] = [];
       }
 
       if (!OperatorUtils.arraySupport(mutation.operator) && mutation.value.length === 1 && !existingValues) {
-        val[conditionKey] = mutation.value[0];
+        value[conditionKey] = mutation.value[0];
       } else {
-        val[conditionKey].push(...mutation.value);
+        value[conditionKey].push(...mutation.value);
       }
 
-      policyStatement.addCondition(operatorKey, val);
+      policyStatement.addCondition(operatorKey, value);
     }
   }
 
-  appendToGrant(scope: Construct, settings: UtilitySettings, grant: iam.Grant): void {
-    if (grant.principalStatements.length === 1) {
-      const stmt = grant.principalStatements[0];
-      this.applyToPolicy(scope, { ...settings }, stmt);
-      return;
+  appendGrant(scope: Construct, settings: ConstraintUtilitySettings, grant: iam.Grant): void {
+
+    if (grant.principalStatements.length === 0 && grant.resourceStatements.length === 0) {
+      throw new Error('No policy statements found in the grant');
     }
 
-    Annotations.of(scope).addError('Currently not capable of working with more complex grants');
+    const statements: iam.PolicyStatement[] = [...grant.principalStatements, ...grant.resourceStatements];
+
+    for (const stmt of statements) {
+      this.appendPolicy(scope, settings, stmt);
+    }
   }
 }
 
@@ -191,7 +201,6 @@ function mutationSort(m1: ConstraintPolicyMutation, m2: ConstraintPolicyMutation
   }
 
   return -1;
-
 }
 
 function mutationsSort(mutations: ConstraintPolicyMutation[]): ConstraintPolicyMutation[] {
@@ -226,5 +235,4 @@ function mutationsSort(mutations: ConstraintPolicyMutation[]): ConstraintPolicyM
   }
 
   return output;
-
 }

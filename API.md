@@ -276,6 +276,56 @@ public readonly claimsContext: IClaimsContext;
 
 ---
 
+### ConstraintUtilitySettings <a name="ConstraintUtilitySettings" id="@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings"></a>
+
+#### Initializer <a name="Initializer" id="@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings.Initializer"></a>
+
+```typescript
+import { ConstraintUtilitySettings } from '@catnekaise/cdk-iam-utilities'
+
+const constraintUtilitySettings: ConstraintUtilitySettings = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings.property.policyType">policyType</a></code> | <code><a href="#@catnekaise/cdk-iam-utilities.PolicyType">PolicyType</a></code> | *No description.* |
+| <code><a href="#@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings.property.appendConditionValues">appendConditionValues</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings.property.claimsContext">claimsContext</a></code> | <code><a href="#@catnekaise/cdk-iam-utilities.IClaimsContext">IClaimsContext</a></code> | *No description.* |
+
+---
+
+##### `policyType`<sup>Required</sup> <a name="policyType" id="@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings.property.policyType"></a>
+
+```typescript
+public readonly policyType: PolicyType;
+```
+
+- *Type:* <a href="#@catnekaise/cdk-iam-utilities.PolicyType">PolicyType</a>
+
+---
+
+##### `appendConditionValues`<sup>Optional</sup> <a name="appendConditionValues" id="@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings.property.appendConditionValues"></a>
+
+```typescript
+public readonly appendConditionValues: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `claimsContext`<sup>Optional</sup> <a name="claimsContext" id="@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings.property.claimsContext"></a>
+
+```typescript
+public readonly claimsContext: IClaimsContext;
+```
+
+- *Type:* <a href="#@catnekaise/cdk-iam-utilities.IClaimsContext">IClaimsContext</a>
+
+---
+
 ### PassClaimsConstraintSettings <a name="PassClaimsConstraintSettings" id="@catnekaise/cdk-iam-utilities.PassClaimsConstraintSettings"></a>
 
 #### Initializer <a name="Initializer" id="@catnekaise/cdk-iam-utilities.PassClaimsConstraintSettings.Initializer"></a>
@@ -323,45 +373,6 @@ public readonly specificallyAllowedTags: string[];
 ```
 
 - *Type:* string[]
-
----
-
-### UtilitySettings <a name="UtilitySettings" id="@catnekaise/cdk-iam-utilities.UtilitySettings"></a>
-
-#### Initializer <a name="Initializer" id="@catnekaise/cdk-iam-utilities.UtilitySettings.Initializer"></a>
-
-```typescript
-import { UtilitySettings } from '@catnekaise/cdk-iam-utilities'
-
-const utilitySettings: UtilitySettings = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@catnekaise/cdk-iam-utilities.UtilitySettings.property.policyType">policyType</a></code> | <code><a href="#@catnekaise/cdk-iam-utilities.PolicyType">PolicyType</a></code> | *No description.* |
-| <code><a href="#@catnekaise/cdk-iam-utilities.UtilitySettings.property.claimsContext">claimsContext</a></code> | <code><a href="#@catnekaise/cdk-iam-utilities.IClaimsContext">IClaimsContext</a></code> | *No description.* |
-
----
-
-##### `policyType`<sup>Required</sup> <a name="policyType" id="@catnekaise/cdk-iam-utilities.UtilitySettings.property.policyType"></a>
-
-```typescript
-public readonly policyType: PolicyType;
-```
-
-- *Type:* <a href="#@catnekaise/cdk-iam-utilities.PolicyType">PolicyType</a>
-
----
-
-##### `claimsContext`<sup>Optional</sup> <a name="claimsContext" id="@catnekaise/cdk-iam-utilities.UtilitySettings.property.claimsContext"></a>
-
-```typescript
-public readonly claimsContext: IClaimsContext;
-```
-
-- *Type:* <a href="#@catnekaise/cdk-iam-utilities.IClaimsContext">IClaimsContext</a>
 
 ---
 
@@ -1474,54 +1485,54 @@ public readonly settings: ConstraintsBuilderSettings;
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendToGrant">appendToGrant</a></code> | *No description.* |
-| <code><a href="#@catnekaise/cdk-iam-utilities.ConstraintsUtility.applyToPolicy">applyToPolicy</a></code> | *No description.* |
+| <code><a href="#@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendGrant">appendGrant</a></code> | *No description.* |
+| <code><a href="#@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendPolicy">appendPolicy</a></code> | *No description.* |
 
 ---
 
-##### `appendToGrant` <a name="appendToGrant" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendToGrant"></a>
+##### `appendGrant` <a name="appendGrant" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendGrant"></a>
 
 ```typescript
-public appendToGrant(scope: Construct, settings: UtilitySettings, grant: Grant): void
+public appendGrant(scope: Construct, settings: ConstraintUtilitySettings, grant: Grant): void
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendToGrant.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendGrant.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendToGrant.parameter.settings"></a>
+###### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendGrant.parameter.settings"></a>
 
-- *Type:* <a href="#@catnekaise/cdk-iam-utilities.UtilitySettings">UtilitySettings</a>
+- *Type:* <a href="#@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings">ConstraintUtilitySettings</a>
 
 ---
 
-###### `grant`<sup>Required</sup> <a name="grant" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendToGrant.parameter.grant"></a>
+###### `grant`<sup>Required</sup> <a name="grant" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendGrant.parameter.grant"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.Grant
 
 ---
 
-##### `applyToPolicy` <a name="applyToPolicy" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.applyToPolicy"></a>
+##### `appendPolicy` <a name="appendPolicy" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendPolicy"></a>
 
 ```typescript
-public applyToPolicy(scope: Construct, settings: UtilitySettings, policyStatement: PolicyStatement): void
+public appendPolicy(scope: Construct, settings: ConstraintUtilitySettings, policyStatement: PolicyStatement): void
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.applyToPolicy.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendPolicy.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-###### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.applyToPolicy.parameter.settings"></a>
+###### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendPolicy.parameter.settings"></a>
 
-- *Type:* <a href="#@catnekaise/cdk-iam-utilities.UtilitySettings">UtilitySettings</a>
+- *Type:* <a href="#@catnekaise/cdk-iam-utilities.ConstraintUtilitySettings">ConstraintUtilitySettings</a>
 
 ---
 
-###### `policyStatement`<sup>Required</sup> <a name="policyStatement" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.applyToPolicy.parameter.policyStatement"></a>
+###### `policyStatement`<sup>Required</sup> <a name="policyStatement" id="@catnekaise/cdk-iam-utilities.ConstraintsUtility.appendPolicy.parameter.policyStatement"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.PolicyStatement
 
