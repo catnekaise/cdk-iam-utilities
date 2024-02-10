@@ -24,7 +24,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     mergify: false,
   },
   publishToNuget: {
-    dotNetNamespace: 'Catnekaise.CDK.IamUtilities',
+    dotNetNamespace: 'Catnekaise.CDK',
     packageId: 'Catnekaise.CDK.IamUtilities',
   },
 

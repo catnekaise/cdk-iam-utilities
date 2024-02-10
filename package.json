@@ -113,7 +113,7 @@
     "outdir": "dist",
     "targets": {
       "dotnet": {
-        "namespace": "Catnekaise.CDK.IamUtilities",
+        "namespace": "Catnekaise.CDK",
         "packageId": "Catnekaise.CDK.IamUtilities"
       }
     },
