@@ -23,6 +23,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     pullRequestLint: true,
     mergify: false,
   },
+  publishToNuget: {
+    dotNetNamespace: 'Catnekaise.CDK.IamUtilities',
+    packageId: 'Catnekaise.CDK.IamUtilities',
+  },
 
 });
 
