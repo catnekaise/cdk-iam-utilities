@@ -18,8 +18,8 @@ export abstract class IamResourcePathBuilder implements IIamResourcePath {
     return [...this.path, policyVariable.toString()];
   }
 
-  protected appendText(value: string, ...additionalValues: string[]): string[] {
-    return [...this.path, value, ...additionalValues];
+  protected appendText(...values: string[]): string[] {
+    return [...this.path, ...values];
   }
 
 }
@@ -34,7 +34,7 @@ export abstract class ClaimsIamResourcePathBuilder extends IamResourcePathBuilde
     super(path);
   }
 
-  protected appendClaim(claim: string, ...additionalClaims: string[]): string[] {
+  protected appendClaim(...claims: string[]): string[] {
 
     const input: string[] = [];
 
@@ -43,7 +43,7 @@ export abstract class ClaimsIamResourcePathBuilder extends IamResourcePathBuilde
       knownClaims,
     } = this.options.claimsContext;
 
-    for (const val of [claim, ...additionalClaims]) {
+    for (const val of claims) {
 
       const claimObj = mappedClaims.claims.filter(x => x.name === val || x.tagName === val);
 
@@ -64,7 +64,7 @@ export abstract class ClaimsIamResourcePathBuilder extends IamResourcePathBuilde
 
   }
 
-  protected appendValue(value: string, ...additionalValues: string[]): string[] {
+  protected appendValue(...values: string[]): string[] {
 
     const input: string[] = [];
 
@@ -73,7 +73,7 @@ export abstract class ClaimsIamResourcePathBuilder extends IamResourcePathBuilde
       knownClaims,
     } = this.options.claimsContext;
 
-    for (const val of [value, ...additionalValues]) {
+    for (const val of values) {
 
       const isKnownClaim = knownClaims.includes(val);
       const mappedClaim = mappedClaims.claims.find(x => x.name === val);
