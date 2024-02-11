@@ -3350,12 +3350,27 @@ public toString(): string
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@catnekaise/cdk-iam-utilities.PolicyVariable.principalOrgId">principalOrgId</a></code> | *No description.* |
 | <code><a href="#@catnekaise/cdk-iam-utilities.PolicyVariable.principalTag">principalTag</a></code> | *No description.* |
 | <code><a href="#@catnekaise/cdk-iam-utilities.PolicyVariable.principalType">principalType</a></code> | *No description.* |
 | <code><a href="#@catnekaise/cdk-iam-utilities.PolicyVariable.requestTag">requestTag</a></code> | *No description.* |
 | <code><a href="#@catnekaise/cdk-iam-utilities.PolicyVariable.resourceTag">resourceTag</a></code> | *No description.* |
 | <code><a href="#@catnekaise/cdk-iam-utilities.PolicyVariable.userId">userId</a></code> | *No description.* |
 | <code><a href="#@catnekaise/cdk-iam-utilities.PolicyVariable.username">username</a></code> | *No description.* |
+
+---
+
+##### `principalOrgId` <a name="principalOrgId" id="@catnekaise/cdk-iam-utilities.PolicyVariable.principalOrgId"></a>
+
+```typescript
+import { PolicyVariable } from '@catnekaise/cdk-iam-utilities'
+
+PolicyVariable.principalOrgId(defaultValue?: string)
+```
+
+###### `defaultValue`<sup>Optional</sup> <a name="defaultValue" id="@catnekaise/cdk-iam-utilities.PolicyVariable.principalOrgId.parameter.defaultValue"></a>
+
+- *Type:* string
 
 ---
 

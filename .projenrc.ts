@@ -5,8 +5,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Daniel Jonsén',
   authorAddress: 'djonser1@gmail.com',
   cdkVersion: '2.82.0',
+  projenVersion: '^0.79.16',
   defaultReleaseBranch: 'main',
-  jsiiVersion: '~5.2.0',
+  jsiiVersion: '~5.3.0',
   name: '@catnekaise/cdk-iam-utilities',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/catnekaise/cdk-iam-utilities.git',
@@ -24,7 +25,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     mergify: false,
   },
   publishToNuget: {
-    dotNetNamespace: 'Catnekaise.CDK',
+    dotNetNamespace: 'Catnekaise.CDK.IamUtilities',
     packageId: 'Catnekaise.CDK.IamUtilities',
   },
 

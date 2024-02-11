@@ -1,5 +1,8 @@
 export class PolicyVariable {
 
+  static principalOrgId(defaultValue?: string): PolicyVariable {
+    return new PolicyVariable('PrincipalOrgID', defaultValue);
+  }
   static principalTag(tagName: string, defaultValue?: string): PolicyVariable {
     return new PolicyVariable('PrincipalTag', defaultValue, tagName);
   }
