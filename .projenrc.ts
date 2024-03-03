@@ -30,6 +30,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     dotNetNamespace: 'Catnekaise.CDK.IamUtilities',
     packageId: 'Catnekaise.CDK.IamUtilities',
   },
+  publishToPypi: {
+    distName: 'catnekaise.cdk-iam-utilities',
+    module: 'catnekaise_cdk_iam_utilities',
+  },
 });
 
 
