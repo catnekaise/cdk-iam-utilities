@@ -34,6 +34,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'catnekaise.cdk-iam-utilities',
     module: 'catnekaise_cdk_iam_utilities',
   },
+  publishToGo: {
+    moduleName: 'github.com/catnekaise/cdk-iam-utilities-go',
+    packageName: 'cdk_iam_utilities',
+  },
 });
 
 

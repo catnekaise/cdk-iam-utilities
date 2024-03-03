@@ -18,6 +18,7 @@
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:dotnet": "npx projen package:dotnet",
+    "package:go": "npx projen package:go",
     "package:js": "npx projen package:js",
     "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
@@ -124,6 +125,10 @@
       "dotnet": {
         "namespace": "Catnekaise.CDK.IamUtilities",
         "packageId": "Catnekaise.CDK.IamUtilities"
+      },
+      "go": {
+        "moduleName": "github.com/catnekaise/cdk-iam-utilities-go",
+        "packageName": "cdk_iam_utilities"
       }
     },
     "tsc": {
