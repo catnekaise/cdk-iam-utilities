@@ -38,6 +38,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
     moduleName: 'github.com/catnekaise/cdk-iam-utilities-go',
     packageName: 'cdk_iam_utilities',
   },
+  publishToMaven: {
+    mavenGroupId: 'com.catnekaise',
+    mavenArtifactId: 'cdk-iam-utilities',
+    javaPackage: 'com.catnekaise.cdk.iam_utilities',
+    mavenRepositoryUrl: 'https://maven.pkg.github.com/catnekaise/cdk-iam-utilities',
+  },
 });
 
 

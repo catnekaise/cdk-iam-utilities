@@ -119,6 +119,45 @@ jobs:
           NPM_CONFIG_PROVENANCE: "true"
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx -p publib@latest publib-npm
+  release_maven:
+    name: Publish to Maven Central
+    needs: release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
+    steps:
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 11.x
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact
+          path: dist
+      - name: Restore build artifact permissions
+        run: cd dist && setfacl --restore=permissions-backup.acl
+        continue-on-error: true
+      - name: Prepare Repository
+        run: mv dist .repo
+      - name: Install Dependencies
+        run: cd .repo && yarn install --check-files --frozen-lockfile
+      - name: Create java artifact
+        run: cd .repo && npx projen package:java
+      - name: Collect java Artifact
+        run: mv .repo/dist dist
+      - name: Release
+        env:
+          MAVEN_SERVER_ID: github
+          MAVEN_REPOSITORY_URL: https://maven.pkg.github.com/catnekaise/cdk-iam-utilities
+          MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          MAVEN_USERNAME: ${{ github.actor }}
+        run: npx -p publib@latest publib-maven
   release_pypi:
     name: Publish to PyPI
     needs: release
