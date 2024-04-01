@@ -845,9 +845,9 @@
     undici-types "~5.26.4"
 
 "@types/node@^18":
-  version "18.19.26"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.26.tgz#18991279d0a0e53675285e8cf4a0823766349729"
-  integrity sha512-+wiMJsIwLOYCvUqSdKTrfkS8mpTp+MPINe6+Np4TAGFWWRWiBQ5kSq9nZGCSPkzx9mvT+uEukzpX4MOSCydcvw==
+  version "18.19.28"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.28.tgz#c64a2c992c8ebbf61100a4570e4eebc1934ae030"
+  integrity sha512-J5cOGD9n4x3YGgVuaND6khm5x07MMdAKkRyXnjVR6KFhLMNh2yONGiP7Z+4+tBOt5mK+GvDTiacTOVGGpqiecw==
   dependencies:
     undici-types "~5.26.4"
 
@@ -3318,9 +3318,9 @@ jsii-diff@^1.91.0:
     yargs "^16.2.0"
 
 jsii-docgen@^10.1.0:
-  version "10.3.25"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.3.25.tgz#d53af1f3912031df446a7ce2e705720383f49f8a"
-  integrity sha512-mR6L9ZKmOBlGRMKtZn+falJwCEDqrXVcYFa0bZDmwKU6rzCtc6jfImZaIB/2honPJi/ee02muoR1DxDfghIPoQ==
+  version "10.3.26"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.3.26.tgz#612b872aefcbd4b4eb48074974d026406edac224"
+  integrity sha512-G4bYx8ZUmswM2NlXtmXn9okCOVNCmkrr7E1Th8iaATmxR7uVJhvqPJcXUXK4ej3cs6sABnoIjQ/Lvd05IcsxZQ==
   dependencies:
     "@jsii/spec" "^1.96.0"
     case "^1.6.3"
@@ -3381,9 +3381,9 @@ jsii-rosetta@^1.96.0:
     yargs "^16.2.0"
 
 jsii-rosetta@~5.3.0:
-  version "5.3.30"
-  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.3.30.tgz#37dfed53f3c552244858a4e4cb5a7d61b8c86162"
-  integrity sha512-723aKf5LPERaEI7qovzi0Bsq7CV4ZIJjMa96fi0D6oZeXEbLh5PsAwdS7HI0+ew8fCtBNpYDgNYlJzXiPadGSg==
+  version "5.3.33"
+  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.3.33.tgz#b07dd0296a685d99a02ee389601fa006c442a482"
+  integrity sha512-nuRovgHFCClkraEfVNMITiJtyeanIm6BgTzXfVDVzdlBLjBzz+XajxPtV2/cvnsl1Nml2vRpvL5ufI9txS7vfw==
   dependencies:
     "@jsii/check-node" "1.96.0"
     "@jsii/spec" "^1.96.0"
@@ -3419,9 +3419,9 @@ jsii@1.96.0:
     yargs "^16.2.0"
 
 jsii@~5.3.0:
-  version "5.3.31"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.3.31.tgz#a870e84a83d9714cef14ec5697add6048e6c74cb"
-  integrity sha512-dIWAKLcaseBDDB3BVjFSbXTfy6qp8hKdUoopkXO4HlMQ/pz0P2SZWHmSP1LLp2XGTSB775QT0LEi3wpWtYVENg==
+  version "5.3.33"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.3.33.tgz#c8b066f04943593448ed6266a8d0985f13a75c7f"
+  integrity sha512-6+Q2ysfWvzKBjZwAOrCmI4pgt+DNYTVrbQbT4Ij3nOXoZOgDGD9SYFxjkamftWgHb3bfc7UJHi5li7AlgNHtKw==
   dependencies:
     "@jsii/check-node" "1.96.0"
     "@jsii/spec" "^1.96.0"
