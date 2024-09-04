@@ -5,7 +5,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Daniel Jonsén',
   authorAddress: 'djonser1@gmail.com',
   cdkVersion: '2.82.0',
-  projenVersion: '^0.86.0',
+  projenVersion: '^0.86.8',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.5.0',
   name: '@catnekaise/cdk-iam-utilities',
